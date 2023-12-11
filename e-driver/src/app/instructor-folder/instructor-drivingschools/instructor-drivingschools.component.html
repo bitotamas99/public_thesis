@@ -1,0 +1,20 @@
+<h2>Autósiskoláim módosítása</h2>
+<mat-form-field appearance="outline">
+    <mat-label>Autósiskolák</mat-label>
+    <mat-select [(ngModel)]="drivingSchoolIds" multiple required (selectionChange)="onSelectedItemsChange($event)">
+    <mat-option *ngFor="let drivingSchool of drivingSchoolList" [value]="drivingSchool.id">
+        {{drivingSchool.name}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<h2>Autósiskoláim</h2>
+<mat-chip-listbox>
+    <mat-chip *ngFor="let drivingSchool of instructorDrivingSchools">
+        <a>{{drivingSchool.name}}</a>
+    </mat-chip> 
+</mat-chip-listbox>
+
+<button mat-flat-button color="primary" (click)="OnDrivingSchoolsUpdate()">Mentés</button>
+
+<!-- kell egy put endpoint az instructorhoz aminél frissül a kiválasztott autósiskolák listája-->

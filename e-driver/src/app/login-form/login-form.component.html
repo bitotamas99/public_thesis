@@ -1,0 +1,25 @@
+<form (submit)="login()" [formGroup]="form">
+  <mat-form-field appearance="outline">
+      <mat-label>Felhasználónév</mat-label>
+      <input formControlName="username" matInput="">
+      <mat-error>The username field is required.</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Jelszó</mat-label>
+      <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+      <mat-error>The passowrd field is required.</mat-error>
+      <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div id="login-buttons">
+      <button mat-flat-button color="primary" [disabled]="!form.valid">Bejelentkezés</button>
+
+      <h3 style="margin-top: 60px;">Még nincs fiókod? Regisztrálj!</h3>
+
+      <button routerLink="/sign-up" mat-flat-button color="primary">Regisztráció</button>
+    </div>
+
+</form>
+

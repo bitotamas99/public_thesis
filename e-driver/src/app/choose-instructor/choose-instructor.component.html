@@ -1,0 +1,30 @@
+<div>
+    <h2>Válassz magadnak oktatót!</h2>
+
+    <h2>Jelöld be, milyen fontosak számodra az alábbi szempontok a jövőbeli oktatódban!</h2>
+
+    <div class="ratingAttributes">
+        <h3>Oktatási minőség</h3>
+        <app-five-stars (onRating)="onRatingEducationQuality($event)"></app-five-stars>
+        <p></p>
+        
+        <h3>Órák gyakorisága</h3>
+        <app-five-stars (onRating)="onRatingFrequencyOfLessons($event)"></app-five-stars>
+        <p></p>
+        
+        <h3>Hangnem</h3>
+        <app-five-stars (onRating)="onRatingTone($event)"></app-five-stars>
+        <p></p>
+        
+        <h3>Ár</h3>
+        <app-five-stars (onRating)="onRatingPrice($event)"></app-five-stars>
+        <p></p>
+    </div>
+
+    <button color="primary" (click)="onInstructorRecommendation()" mat-flat-button>Oktató ajánlások megtekintése</button>
+
+
+    <h2>Inkább magam választok oktatót</h2>
+    <button [routerLink]="'/instructors/'" color="primary" mat-flat-button>Összes oktató megtekintése</button>
+
+</div>

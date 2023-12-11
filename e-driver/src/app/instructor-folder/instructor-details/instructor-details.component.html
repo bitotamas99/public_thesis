@@ -1,0 +1,35 @@
+<div *ngIf="instructor">
+    <div >
+        <h2>Név:</h2>
+        <h3>{{instructor.name}}</h3>
+
+        <h2>Város:</h2>
+        <h3>{{instructor.city}}</h3>
+
+        <h2>Autó:</h2>
+        <h3>{{instructor.carType}}</h3>
+
+        <h2>Autósiskolák:</h2>
+        <mat-chip-listbox>
+            <mat-chip *ngFor="let drivingSchool of instructor.drivingSchools">
+                <a [routerLink]="'/driving-schools-edit/' + drivingSchool.id">{{drivingSchool.name}}</a>
+            </mat-chip> 
+        </mat-chip-listbox>
+        <br>
+    
+    <h2>Kapott értékelések:</h2>
+    <div *ngFor="let rating of instructorRatings">
+        <h2>Ár </h2>
+        <a>{{rating.ratePrice}}</a>
+        <h2>Oktatási minőség</h2>
+        <a>{{rating.rateEducationQuality}}</a>
+        <h2>Órák gyakorisága</h2>
+        <a>{{rating.rateFrequencyOfLessons}}</a>
+        <h2>Hangnem</h2>
+        <a>{{rating.rateTonee}}</a>
+        <h2>Megjegyzés</h2>
+        <a>{{rating.rateText}}</a>
+    </div>
+
+    </div>
+</div>

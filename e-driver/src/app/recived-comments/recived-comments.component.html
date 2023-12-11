@@ -1,0 +1,33 @@
+<h2>Kapott megyjegyzések</h2>
+
+<table *ngIf="rateOfLessons" mat-table [dataSource]="rateOfLessons">
+    <ng-container  matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef>
+        Dátum
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>{{ element.selectedDate | date: 'yyyy/MM/dd HH:mm' }}</a>
+      </td>
+    </ng-container>
+    <ng-container  matColumnDef="Text">
+      <th mat-header-cell *matHeaderCellDef>
+        Szöveg
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>{{element.text}}</a>
+      </td>
+    </ng-container>
+    <ng-container  matColumnDef="NumberOfLesson">
+      <th mat-header-cell *matHeaderCellDef>
+        Óraszám
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>{{element.lessonNumber}}</a>
+      </td>
+    </ng-container>
+    
+    
+  
+    <tr mat-header-row *matHeaderRowDef="columsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columsToDisplay"></tr>
+  </table>

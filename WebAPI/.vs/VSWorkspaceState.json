@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WebAPI",
+    "\\WebAPI\\Controllers",
+    "\\WebAPI\\DTOs",
+    "\\WebAPI\\Entities",
+    "\\WebAPI\\Helpers",
+    "\\WebAPI\\Migrations",
+    "\\WebAPI\\Properties"
+  ],
+  "SelectedNode": "\\WebAPI\\Controllers\\RatingController.cs",
+  "PreviewInSolutionExplorer": false
+}

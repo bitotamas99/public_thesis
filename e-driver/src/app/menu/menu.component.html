@@ -1,0 +1,79 @@
+
+    <div>
+        <mat-toolbar color="primary"> 
+            <span>
+                <a routerLink="home" mat-button>
+                    <mat-icon> directions_car</mat-icon>
+                    E-driver
+                </a>
+            </span>
+            <div *ngIf="!isInstructor && !isAdmin">
+                    <div class="roleMenuAppering">
+                        <div>
+                            <a routerLink="recived-comments"  mat-button>
+                                | Kapott megjegyzések
+                            </a>
+                        </div>
+                        <div>
+                            <a routerLink="rate-instructor"  mat-button>
+                                | Oktató értékelése
+                            </a>
+                        </div>
+                        <div>
+                            <a routerLink="instructors"  mat-button>
+                                | Oktatók
+                            </a>
+                        </div>
+                        <div *ngIf="studentInstructorRelationship">
+                            <div *ngIf="studentInstructorRelationship.isRequestAccepted">
+                                <a routerLink="calendar-student"  mat-button>
+                                    | Naptár
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <a routerLink="choose-instructor"  mat-button>
+                                | Oktató ajánlás
+                            </a>
+                        </div>
+                    </div>
+            </div>
+                
+            <div *ngIf="isInstructor">
+                    <div class="roleMenuAppering">
+                        <div>
+                            <a routerLink="student-list" mat-button>
+                                | Tanulóim
+                            </a>
+                        </div>
+                        <div>
+                            <a routerLink="ratings-recived" mat-button>
+                                | Kapott Értékelések
+                            </a>
+                        </div>
+                        <div>
+                            <a routerLink="rate-lessons" mat-button>
+                                | Óra értékelése
+                            </a>
+                        </div>
+                        <div>
+                            <a routerLink="student-requests" mat-button>
+                                | Kérelmek
+                            </a>
+                        </div>
+                        <div>
+                            <a routerLink="calendar-instructor"  mat-button>
+                                | Naptár
+                            </a>
+                        </div>
+
+                    </div>
+            </div>
+
+            <div class="logOutStyle">
+                <a routerLink="login"  mat-button (click)="logout()">
+                    Kijelentkezés
+                </a>
+            </div>
+        </mat-toolbar>
+    </div>

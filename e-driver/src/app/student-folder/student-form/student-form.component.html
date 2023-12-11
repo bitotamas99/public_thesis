@@ -1,0 +1,30 @@
+<form (submit)="studentRegistration()" [formGroup]="studentForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Teljes Név</mat-label>
+    <input formControlName="name" matInput="">
+    <mat-error>The name field is required.</mat-error>
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Felhasználónév</mat-label>
+    <input formControlName="username" matInput="">
+    <mat-error>The name field is required.</mat-error>
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Jelszó</mat-label>
+    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+    <mat-error>The name field is required.</mat-error>
+    <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+      <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Jelszó megerősítése</mat-label>
+    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+    <mat-error>The name field is required.</mat-error>
+    <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+      <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+  </mat-form-field>
+
+<button type="submit" mat-flat-button color="primary" disabled="{{studentForm.invalid}}">Regisztráció</button>
+</form>

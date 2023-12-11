@@ -1,0 +1,34 @@
+<h2>Tanulók kérelmei</h2>
+
+<table mat-table [dataSource]="requests">
+    <ng-container matColumnDef="student">
+        <th mat-header-cell *matHeaderCellDef>
+          Tanuló
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a matDatepicker>{{element.studentName}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>
+          Dátum
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a matDatepicker>{{element.requestDate | date: 'yyyy/MM/dd HH:mm'}}</a>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef>
+          Státusz
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="acceptRequest(element.id)" mat-flat-button style="color: green;">Elfogad</button>
+          <button (click)="deleteRequest(element.id)" mat-flat-button style="color: red;">Elutasít</button>
+        </td>
+      </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="columsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columsToDisplay"></tr>
+</table>

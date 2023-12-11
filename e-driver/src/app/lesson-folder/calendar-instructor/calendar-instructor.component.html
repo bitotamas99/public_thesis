@@ -1,0 +1,76 @@
+<h2>Beérkezett óra foglalások</h2>
+
+<table mat-table [dataSource]="lessons">
+    <ng-container matColumnDef="student">
+        <th mat-header-cell *matHeaderCellDef>
+          Tanuló
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a matDatepicker>{{element.studentName}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef>
+          Kezdés
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a matDatepicker>{{element.start | date: 'yyyy/MM/dd HH:mm'}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef>
+          Vége
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a matDatepicker>{{element.end | date: 'yyyy/MM/dd HH:mm'}}</a>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef>
+          Státusz
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="acceptRequest(element.id)" mat-flat-button style="color: green;">Elfogad</button>
+          <button (click)="deleteRequest(element.id)" mat-flat-button style="color: red;">Elutasít</button>
+        </td>
+      </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="columsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columsToDisplay"></tr>
+</table>
+
+<br/>
+
+<h2>Óráim</h2>
+<table mat-table [dataSource]="acceptedLessons">
+    <ng-container matColumnDef="student">
+        <th mat-header-cell *matHeaderCellDef>
+          Tanuló
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a matDatepicker>{{element.studentName}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef>
+          Kezdés
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a matDatepicker>{{element.start | date: 'yyyy/MM/dd HH:mm'}}</a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef>
+          Vége
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a matDatepicker>{{element.end | date: 'yyyy/MM/dd HH:mm'}}</a>
+        </td>
+      </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="columsToDisplayAccepted"></tr>
+    <tr mat-row *matRowDef="let row; columns: columsToDisplayAccepted"></tr>
+</table>

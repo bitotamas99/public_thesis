@@ -1,0 +1,57 @@
+<h2>Kapott értékelések</h2>
+
+<table *ngIf="ratings" mat-table [dataSource]="ratings">
+      <ng-container  matColumnDef="studentName">
+      <th mat-header-cell *matHeaderCellDef>
+        Tanuló neve
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>{{element.studentName}}</a>
+      </td>
+    </ng-container>
+    <ng-container  matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>
+        Ár
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>{{element.ratePrice}}</a>
+      </td>
+    </ng-container>
+    <ng-container  matColumnDef="tone">
+      <th mat-header-cell *matHeaderCellDef>
+        Hangnem
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>{{element.rateTone}}</a>
+      </td>
+    </ng-container>
+    <ng-container  matColumnDef="rateEducationQuality">
+      <th mat-header-cell *matHeaderCellDef>
+        Oktatási minőség
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>{{element.rateEducationQuality}}</a>
+      </td>
+    </ng-container>
+    <ng-container  matColumnDef="rateFrequencyOfLessons">
+      <th mat-header-cell *matHeaderCellDef>
+        Órák gyakorisága
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>{{element.rateFrequencyOfLessons}}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="text">
+      <th mat-header-cell *matHeaderCellDef>
+        Megjegyzés
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>{{element.rateText}}</a>
+      </td>
+    </ng-container>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="columsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columsToDisplay"></tr>
+  </table>

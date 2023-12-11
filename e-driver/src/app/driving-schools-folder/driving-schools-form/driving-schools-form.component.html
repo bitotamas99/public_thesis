@@ -1,0 +1,18 @@
+<form (submit)="saveChanges()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Név</mat-label>
+        <input formControlName="name" matInput/>
+        <mat-error>The name field is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Weboldal</mat-label>
+        <input formControlName="website" matInput/>
+        <mat-error>The name field is required.</mat-error>
+    </mat-form-field>
+
+    <div>
+        <button mat-flat-button color="primary" disabled="{{form.invalid}}">Mentés</button>
+        <a mat-stroked-button routerLink="/driving-schools">Vissza</a>
+    </div>
+</form>

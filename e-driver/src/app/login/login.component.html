@@ -1,0 +1,15 @@
+<div id="login-container">
+  <h2>Bejelentkezés</h2>
+  
+  <mat-radio-group [(ngModel)]="selectedOption">
+      <mat-radio-button value="Oktató">Oktatóként</mat-radio-button>
+      <mat-radio-button value="Tanuló">Tanulóként</mat-radio-button>
+    </mat-radio-group>
+
+    <div *ngIf="errorMessage">
+      <p style="color: red;">{{ errorMessage }}</p>
+    </div>
+
+  <app-login-form (onSubmit)="login($event)"></app-login-form>
+
+</div>

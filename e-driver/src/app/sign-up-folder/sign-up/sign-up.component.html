@@ -1,0 +1,19 @@
+<div>
+    <h2>Regisztráció</h2>
+
+    <div id="sign-up-buttons">
+        <button (click)="onStudentSelected()" mat-flat-button color="primary">Regisztráció tanulóként</button>
+        <button (click)="onInstructorSelected()" mat-flat-button color="primary">Regisztráció oktatóként</button>
+    </div>
+
+    <br/>
+    
+    <app-instructor-form *ngIf="!isStudentFormVisible" (onSaveChanges)="onInstructorSignUp($event)"></app-instructor-form>
+    <app-student-form *ngIf="isStudentFormVisible" (onSaveChanges)="onStudentSignUp($event)"></app-student-form>
+
+    <h3>Már van fiókod? Jelentkezz be!</h3>
+
+    <div id="sign-up-buttons">
+        <button routerLink="" mat-flat-button color="primary">Bejelentkezés</button>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.form-container mat-form-field {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  mat-flat-button, button{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    margin-left: 47%;
+  }

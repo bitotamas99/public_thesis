@@ -1,0 +1,17 @@
+mat-toolbar{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+}
+
+.roleMenuAppering{
+    display: flex; 
+    flex-direction: row;
+}
+
+.logOutStyle{
+    margin-left: auto;
+}

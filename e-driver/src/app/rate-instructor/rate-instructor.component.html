@@ -1,0 +1,32 @@
+<div *ngIf="studentInstructorRelationship; else noInstructor">
+    <div *ngIf="studentInstructorRelationship.isRequestAccepted">
+        <h2> Értékeld {{studentInstructorRelationship.instructorName}} oktatót </h2>
+        <div class="rates-container">
+            <h3>Oktatási minőség</h3>
+            <app-five-stars (onRating)="onRatingPrice($event)"></app-five-stars>
+
+            <h3>Órák gyakorisága</h3>
+            <app-five-stars (onRating)="onRatingTone($event)"></app-five-stars>
+
+            <h3>Hangnem</h3>
+            <app-five-stars (onRating)="onRatingFrequencyOfLessons($event)"></app-five-stars>
+
+            <h3>Ár</h3>
+            <app-five-stars (onRating)="onRatingEducationQuality($event)"></app-five-stars>
+        </div>
+        <div class="textarea-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Megjegyzés fűzése az értékeléshez:</mat-label>
+                <textarea [(ngModel)]="ratingNote" matInput></textarea>
+            </mat-form-field>            
+        </div>
+        <button (click)="onRatingClick()" mat-flat-button color="primary">Értékel</button>
+    </div>
+    <div *ngIf="!studentInstructorRelationship.isRequestAccepted">
+        <h2>Nincs elfogadott kérelmed, így nem tudsz oktatót értékelni.</h2>
+    </div>
+</div>
+
+<ng-template #noInstructor>
+    <h2>Nem választottál még magadnak oktatót, így nem tudsz oktatót értékelni.</h2>
+</ng-template>

@@ -1,0 +1,65 @@
+<h2>Ajánlott oktatók</h2>
+
+<mat-form-field>
+  <mat-label>Válassz várost</mat-label>
+  <select matNativeControl required [(ngModel)]="selectedCity" (change)="onChange()">
+    <option [value]="null" disabled>Városok:</option>
+    <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+  </select>
+</mat-form-field>
+
+<table mat-table [dataSource]="recommendedInstructors" class="table-index">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>
+        Név
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="'/instructor/' + element.id">
+            {{element.name}}
+          </a>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef>
+        Város
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <a>
+          {{element.city}}
+        </a> 
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="carType">
+        <th mat-header-cell *matHeaderCellDef>
+          Autó ípus
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <a>
+            {{element.carType}}
+          </a> 
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="request">
+        <th mat-header-cell *matHeaderCellDef>
+          Kérelem küldése
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="isRequestSent">
+            <h4>Kérelem elküldve!</h4>
+          </div>
+          <div *ngIf="!isRequestSent">
+            <a>
+              <button (click)="sendRequest(element.id)" mat-flat-button>Küldés</button>
+            </a>   
+          </div>
+        </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columsToDisplay"></tr>
+  </table>
+
+<div>
+  <button routerLink="/instructors" mat-flat-button color="primary">Inkább magam választok oktatót</button>
+</div>
+
